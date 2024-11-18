@@ -3,20 +3,63 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WorkFlow Automation</title>
+    <title>Workflow Nodes</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        #workflow-canvas {
+            position: relative;
+            width: 100%;
+            /* Canvas width */
+            height: 100vh;
+            /* Full viewport height */
+            border: 1px solid #ddd;
+            overflow: hidden;
+            /* Prevent overflow */
+        }
+
+        .draggable-item {
+            position: absolute;
+            width: 5%;
+            /* Example percentage width */
+            height: 5%;
+            /* Example percentage height */
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+            line-height: 5vh;
+            /* Adjust for better centering text */
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        .draggable-item .title {
+            font-weight: bold;
+        }
+
+        #connection-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+    </style>
 </head>
 
 <body>
-    <button id="add-node-btn">Add Node</button>
-    <div id="workflow-builder"></div>
-    <div id="visualization"></div>
-    <div id="palette" class="drag-area">
-        <div id="task1" class="draggable-item">Task 1</div>
-        <div id="task2" class="draggable-item">Task 2</div>
+    <div id="workflow-canvas">
+        <svg id="connection-layer"></svg>
     </div>
-    <div id="workflow-canvas" class="drop-area">Drop here</div>
     <script src="app.js" type="module"></script>
 </body>
 
